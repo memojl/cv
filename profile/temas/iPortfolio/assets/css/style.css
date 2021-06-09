@@ -1072,3 +1072,7 @@ section {
     padding-right: 20px 15px;
   }
 }
+
+#porta{
+  height: auto !important;
+}

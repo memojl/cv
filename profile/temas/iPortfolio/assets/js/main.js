@@ -168,18 +168,10 @@
         itemSelector: '.portfolio-item'
       });
 
-      let filtro = document.querySelector('#portfolio-flters');console.log(filtro);      
-      
-      on('click', '#portfolio-flters', function(e) {       
-        let li = filtro.children; //console.log(li);
-        let fil=[];
-        for(var i=0; i<li.length; i++){
-          fil[i] = li[i];
-        }        
-        console.log(fil);
+      let portfolioFilters = select('#portfolio-flters li', true);
 
-        //e.preventDefault();
-        let portfolioFilters = select('#portfolio-flters li', true);//console.log(portfolioFilters);
+      on('click', '#portfolio-flters li', function(e) {
+        e.preventDefault();
         portfolioFilters.forEach(function(el) {
           el.classList.remove('filter-active');
         });
