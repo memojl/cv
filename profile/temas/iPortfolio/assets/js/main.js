@@ -168,14 +168,19 @@
         itemSelector: '.portfolio-item'
       });
 
-      let filtro = document.querySelector('#portfolio-flters');
+      let filtro = document.querySelector('#portfolio-flters');      
       let portfolioFilters = select('#portfolio-flters li', true);
-      on('click', '#portfolio-flters', function(e) {        
-        let li = filtro.children;
-        console.log(li);
-        console.log(portfolioFilters);
-        e.preventDefault();
-        portfolioFilters.forEach(function(el) {
+      on('click', '#portfolio-flters', function(e) { //console.log(portfolioFilters);      
+        let li = filtro.children; //console.log(li);
+
+        let fil=[];
+        for(var i=0; i<li.length; i++){
+          fil[i] = li[i];
+        }        
+        console.log(fil);
+
+        //e.preventDefault();
+        fil.forEach(function(el) {
           el.classList.remove('filter-active');
         });
         this.classList.add('filter-active');
