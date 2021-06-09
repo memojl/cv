@@ -33,5 +33,5 @@ async function portafolio(){
 
 export function inicio(){
     console.log('Función corriendo');
-    portafolio();
+    //portafolio();
 }

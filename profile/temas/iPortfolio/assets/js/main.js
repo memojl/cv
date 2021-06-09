@@ -168,9 +168,12 @@
         itemSelector: '.portfolio-item'
       });
 
+      let filtro = document.querySelector('#portfolio-flters');
       let portfolioFilters = select('#portfolio-flters li', true);
-
-      on('click', '#portfolio-flters li', function(e) {
+      on('click', '#portfolio-flters', function(e) {        
+        let li = filtro.children;
+        console.log(li);
+        console.log(portfolioFilters);
         e.preventDefault();
         portfolioFilters.forEach(function(el) {
           el.classList.remove('filter-active');
