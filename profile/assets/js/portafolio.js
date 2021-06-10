@@ -5,11 +5,12 @@ async function portafolio(){
     const data = await res.json();
     data.reverse();//console.log(data);
     const unicos = [];
-    const div = document.getElementById('porta');
-    const cat = document.getElementById('portfolio-flters');
+    let porta = document.getElementById('porta');
+    let cat = document.getElementById('portfolio-flters');
+    let div = '';
     data.forEach(item => {
       const {ID, nombre, cate, cover, imagen1, descripcion, url_page, visible} = item;
-      div.innerHTML += `
+      div += `
       <div class="col-lg-4 col-md-6 portfolio-item filter-${cate}">
         <div class="portfolio-wrap">
           <img src="https://portafolio1.webcindario.com/modulos/portafolio/fotos/${cover}" class="img-fluid" alt="">
@@ -23,6 +24,7 @@ async function portafolio(){
         unicos.push(cate);
       }
     });//console.log(unicos.reverse());
+    porta.innerHTML = div;
     unicos.reverse();
     let li = '<li data-filter="*" class="filter-active">All</li>';
     for(var i=0;i<unicos.length;i++){
