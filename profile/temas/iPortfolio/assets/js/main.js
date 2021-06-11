@@ -162,29 +162,16 @@
    * Porfolio isotope and filter
    */
   window.addEventListener('load', () => {
-    let li = document.querySelector('#portfolio-flters').children;
     let portfolioContainer = select('.portfolio-container');
     if (portfolioContainer) {
       let portfolioIsotope = new Isotope(portfolioContainer, {
         itemSelector: '.portfolio-item'
       });
 
-      let filtro = document.querySelector('#portfolio-flters');      
-      //console.log(filtro);
-      console.log(li);
-      
-      let btnLi=filtro;
-      let fil=[];
-      for(var i=0; i<li.length; i++){
-        fil[i] = li[i];
-      }
-      btnLi=fil;
-/*      
- 
-*/
-      filtro.addEventListener('click', function() {
-        //e.preventDefault();
-        let portfolioFilters = select('#portfolio-flters li', true);//console.log(portfolioFilters);
+      let portfolioFilters = select('#portfolio-flters li', true); //
+      on('click', '#portfolio-flters li', function(e) {
+        e.preventDefault();
+        console.log(portfolioFilters);
         portfolioFilters.forEach(function(el) {
           el.classList.remove('filter-active');
         });
@@ -284,9 +271,10 @@ function btnLi(n){
 
     portfolioIsotope.arrange({
       filter: li[n].getAttribute('data-filter')
-    });
+    });console.log(li[n].getAttribute('data-filter'));
     portfolioIsotope.on('arrangeComplete', function() {
       AOS.refresh()
     });
   }
 }
+//btnLi(0);
