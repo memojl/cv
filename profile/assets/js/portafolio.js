@@ -26,9 +26,10 @@ async function portafolio(){
     });//console.log(unicos.reverse());
     porta.innerHTML = div;
     unicos.reverse();
-    let li = '<li data-filter="*" class="filter-active">All</li>';
-    for(var i=0;i<unicos.length;i++){
-      li += `<li data-filter=".filter-${unicos[i]}">${unicos[i]}</li>`
+    let li = '<li onclick="btnLi(0)" data-filter="*" class="filter-active">All</li>';
+    var n=0;
+    for(var i=0;i<unicos.length;i++){n++;
+      li += `<li onclick="btnLi(${n})" data-filter=".filter-${unicos[i]}">${unicos[i]}</li>`
     }
     cat.innerHTML = li;
 }
