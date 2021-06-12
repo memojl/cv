@@ -262,8 +262,8 @@ function btnLi(n){
     let portfolioIsotope = new Isotope(portfolioContainer, {
       itemSelector: '.portfolio-item'
     });
-  
-    let li = document.querySelectorAll('#portfolio-flters>li');console.log('li:'+n);
+    console.log(n);
+    let li = document.querySelectorAll('#portfolio-flters>li');//console.log(li[n]);
     li.forEach(function(el) {
       el.classList.remove('filter-active');
     });
