@@ -256,23 +256,25 @@
 
 })()
 
-var li = document.querySelectorAll('#portfolio-flters>li');
+const li = document.querySelectorAll('#portfolio-flters>li');
 function btnLi(n){
   let portfolioContainer = document.querySelector('.portfolio-container');
   if (portfolioContainer) {
     let portfolioIsotope = new Isotope(portfolioContainer, {
       itemSelector: '.portfolio-item'
     });
-    //console.log(n);
-    console.log(li);
-    li.forEach(function(el) {
+    //console.log(n);console.log(li);
+    let fil=[];
+    for(var i=0; i<li.length; i++){fil[i] = li[i];}        
+    console.log(fil);
+    fil.forEach(function(el) {
       el.classList.remove('filter-active');
     });
-    li[n].classList.add('filter-active');
+    fil[n].classList.add('filter-active');
 
     portfolioIsotope.arrange({
-      filter: li[n].getAttribute('data-filter')
-    });console.log(li[n].getAttribute('data-filter'));
+      filter: fil[n].getAttribute('data-filter')
+    });console.log(fil[n].getAttribute('data-filter'));
     portfolioIsotope.on('arrangeComplete', function() {
       AOS.refresh()
     });
