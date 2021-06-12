@@ -5,8 +5,8 @@ async function portafolio(){
     const data = await res.json();
     data.reverse();//console.log(data);
     const unicos = [];
-    let porta = document.getElementById('porta');
-    let cat = document.getElementById('portfolio-flters');
+    let porta = document.querySelector('.portfolio-container');
+    let cat = document.querySelector('#portfolio-flters');
     let div = '';
     data.forEach(item => {
       const {ID, nombre, cate, cover, imagen1, descripcion, url_page, visible} = item;
@@ -36,5 +36,5 @@ async function portafolio(){
 
 export function inicio(){
     console.log('Función corriendo');
-    portafolio();
+    //portafolio();
 }

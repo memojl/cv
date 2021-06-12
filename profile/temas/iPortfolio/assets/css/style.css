@@ -1073,6 +1073,6 @@ section {
   }
 }
 
-#porta{
+#porta,.portfolio-container{
   height: auto;
 }
