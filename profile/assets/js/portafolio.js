@@ -15,8 +15,8 @@ async function portafolio(){
         <div class="portfolio-wrap">
           <img src="https://portafolio1.webcindario.com/modulos/portafolio/fotos/${cover}" class="img-fluid" alt="">
           <div class="portfolio-links">
-            <a href="https://portafolio1.webcindario.com/modulos/portafolio/fotos/${cover}" target="_blank" data-gallery="portfolioGallery" class="portfolio-lightbox" title="${nombre}"><i class="bx bx-plus"></i></a>
-            <a href="https://portafolio1.webcindario.com/index.php?mod=portafolio&ext=item&id=${ID}" title="Más Detalles"><i class="bx bx-link"></i></a>
+            <a target="_blank" href="https://portafolio1.webcindario.com/modulos/portafolio/fotos/${cover}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="${nombre}"><i class="bx bx-plus"></i></a>
+            <a target="_blank" href="https://portafolio1.webcindario.com/index.php?mod=portafolio&ext=item&id=${ID}" title="Más Detalles"><i class="bx bx-link"></i></a>
           </div>
         </div>
       </div>`;
