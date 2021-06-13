@@ -290,7 +290,7 @@ function btnLi(n){
 }
 
 async function portafolio(){
-  const url = 'http://portafolio1.webcindario.com/api/v1/?tabla=portafolio';
+  const url = 'https://portafolio1.webcindario.com/api/v1/?tabla=portafolio';
   const res = await fetch(url);
   const data = await res.json();
   data.reverse();//console.log(data);
