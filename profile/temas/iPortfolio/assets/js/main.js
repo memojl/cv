@@ -256,8 +256,9 @@
 
 })()
 
-const li = document.querySelectorAll('#portfolio-flters>li');
+
 function btnLi(n){
+  let li = document.querySelectorAll('#portfolio-flters>li');
   let portfolioContainer = document.querySelector('.portfolio-container');
   if (portfolioContainer) {
     let portfolioIsotope = new Isotope(portfolioContainer, {

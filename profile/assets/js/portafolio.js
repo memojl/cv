@@ -29,7 +29,7 @@ async function portafolio(){
     let li = '<li onclick="btnLi(0)" data-filter="*" class="filter-active">All</li>';
     var n=0;
     for(var i=0;i<unicos.length;i++){n++;
-      li += `<li onclick="btnLi(${n})" data-filter=".filter-${unicos[i]}">${unicos[i]}</li>`
+      li += `<li id="${n}" onclick="btnLi(${n})" data-filter=".filter-${unicos[i]}">${unicos[i]}</li>`
     }
     cat.innerHTML = li;
 }
