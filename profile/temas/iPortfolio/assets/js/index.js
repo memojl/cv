@@ -1,3 +1,3 @@
-import {inicio} from '../../../../assets/js/portafolio.js';
+import {inicio} from './portafolio.js';
 
 inicio();
