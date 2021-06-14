@@ -1,5 +1,5 @@
 # CV y Portafolio
 
-Desarrollo para mi curriculum y portafolio de Guillermo Jiménez López
+Desarrollo de mi CV y Portafolio profesional
 
 Template: iPortfolio
