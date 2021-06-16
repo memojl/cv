@@ -1,9 +1,9 @@
 {
-	"name": "PHP ONIX",
-	"short_name": "PHP ONIX",
-	"description": "PHP Onix - El mejor CMS para crear y administrar tu sitio web. Gestor de contenido web.",
+	"name": "CV PORTAFOLIO",
+	"short_name": "CV PORTAFOLIO",
+	"description": "CV PORTAFOLIO - Curriculum de Guillermo Jimenez Lopez Desarrollador y Programador Web.",
 	"scope": ".",
-	"start_url": "http://localhost/MisSitios/phponix/",
+	"start_url": "http://localhost/MisSitios/cv/",
 	"display": "standalone",
 	"orientation": "portrait",
 	"theme_color": "#000",
