@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 0;
   background-color: #173b6c;
   display: none;
-  height: 80px;
+  height: 75px;
   width: 100%;
   z-index: 1000;
   text-align: center;
@@ -91,11 +91,6 @@ h1, h2, h3, h4, h5, h6 {
   #menu-down{display: block;}
 }
 @media (max-width: 650px) {
-  #menu-down li{
-    padding: 23px 18%;
-   }
-}
-@media (max-width: 320px) {
   #menu-down li{
     padding: 20px 18%;
    }
