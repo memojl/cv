@@ -92,7 +92,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (max-width: 650px) {
   #menu-down li{
-    padding: 22px 20%;
+    padding: 23px 18%;
+   }
+}
+@media (max-width: 320px) {
+  #menu-down li{
+    padding: 20px 18%;
    }
 }
 /*--------------------------------------------------------------
