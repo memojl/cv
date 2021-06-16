@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
   visibility: hidden;
   opacity: 0;
   right: 15px;
-  bottom: 15px;
+  bottom: 85px;
   z-index: 996;
   background: #149ddd;
   width: 40px;
@@ -60,6 +60,41 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
 }
 
+/*--------------------------------------------------------------
+# menu-down
+--------------------------------------------------------------*/
+#menu-down{
+  position: fixed;
+  bottom: 0;
+  background-color: #173b6c;
+  display: none;
+  height: 80px;
+  width: 100%;
+  z-index: 1000;
+  text-align: center;
+  /*padding: 5px 5px;*/
+}
+#menu-down ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#menu-down li{
+ display: inline-block;
+ padding: 22px 22%;
+}
+#menu-down li a i{
+  font-size: 35px;
+  color:#fff;
+}
+@media (max-width: 920px) {
+  #menu-down{display: block;}
+}
+@media (max-width: 650px) {
+  #menu-down li{
+    padding: 22px 20%;
+   }
+}
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
