@@ -3,7 +3,7 @@
 	"short_name": "CV PORTAFOLIO",
 	"description": "CV PORTAFOLIO - Curriculum de Guillermo Jimenez Lopez Desarrollador y Programador Web.",
 	"scope": ".",
-	"start_url": "http://localhost/MisSitios/cv/",
+	"start_url": "https://memojl.github.io/cv/profile/",
 	"display": "standalone",
 	"orientation": "portrait",
 	"theme_color": "#000",
