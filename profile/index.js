@@ -1,3 +1,3 @@
-import {inicio} from './assets/js/functions.js';
+import {inicio} from './temp/js/functions.js';
 
 inicio();

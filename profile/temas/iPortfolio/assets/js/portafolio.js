@@ -34,7 +34,36 @@ async function portafolio(){
     cat.innerHTML = li;
 }
 
+function calcularEdad(fechaNacimiento) {
+  const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+  const fec =  fechaNacimiento.split('-');
+  const m = parseInt(fec[1].replace('0',''));
+  const month = months[m-1];
+  const fechaNac = `${fec[2]}/${month}/${fec[0]}`;
+  let hoy = new Date();
+  let nacimiento = new Date(fechaNacimiento);
+  let edad = hoy.getFullYear() - nacimiento.getFullYear();
+  let mes = hoy.getMonth() - nacimiento.getMonth();
+  let dia = hoy.getDate() - nacimiento.getDate();
+  // Ajustar la edad si aún no ha pasado el cumpleaños este año
+  if (mes < 0 || (mes === 0 && dia < 0)) {
+      edad--;
+  }
+  
+  console.log(fechaNac);
+  const miFechaNac = document.querySelector('#miFechaNac');
+  if(miFechaNac){
+    miFechaNac.innerHTML = fechaNac;
+  }
+  console.log(edad);
+  const miEdad = document.querySelector('#miEdad');
+  if(miEdad){
+    miEdad.innerHTML = edad+' años';
+  }
+}
+
 export function inicio(){
     console.log('Función corriendo');
     portafolio();
+    calcularEdad('1979-04-08');
 }
