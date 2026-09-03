@@ -1,39 +1,125 @@
 //FUNCIONES
 async function portafolio() {
-  let porta = document.querySelector('.portfolio-container');
-  let cat = document.querySelector('#portfolio-flters');
-  let div = '';
+  const porta = document.querySelector('.portfolio-container');
+  const cat = document.querySelector('#portfolio-flters');
+
   const url = 'https://portafolio1.webcindario.com/api/v1/?tabla=portafolio';
-  const res = await fetch(url);
-  const data = await res.json();
-  if(!res && !data){porta.innerHTML = ``; return;}
-  data.reverse();//console.log(data);
-  const unicos = [];
-  data.forEach(item => {
-    const { ID, nombre, cate, cover, imagen1, descripcion, url_page, visible } = item;
-    div += `
-      <div class="col-lg-4 col-md-6 portfolio-item filter-${cate}">
-        <div class="portfolio-wrap">
-          <img src="https://portafolio1.webcindario.com/modulos/portafolio/fotos/${cover}" class="img-fluid" alt="">
-          <div class="portfolio-links">
-            <a target="_blank" href="https://portafolio1.webcindario.com/modulos/portafolio/fotos/${cover}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="${nombre}"><i class="bx bx-plus"></i></a>
-            <a target="_blank" href="https://portafolio1.webcindario.com/index.php?mod=portafolio&ext=item&id=${ID}" title="Más Detalles"><i class="bx bx-link"></i></a>
+
+  try {
+    const res = await fetch(url);
+
+    // Validar respuesta HTTP
+    if (!res.ok) {
+      throw new Error(`Error HTTP: ${res.status} ${res.statusText}`);
+    }
+
+    // Validar que la respuesta sea JSON
+    const contentType = res.headers.get('content-type');
+
+    if (!contentType || !contentType.includes('application/json')) {
+      throw new Error('La respuesta no es JSON válido');
+    }
+
+    const data = await res.json();
+
+    // Validar que data sea un arreglo
+    if (!Array.isArray(data) || data.length === 0) {
+      porta.innerHTML = '';
+      cat.innerHTML = '';
+      return;
+    }
+
+    data.reverse();
+
+    const unicos = [];
+    let div = '';
+
+    data.forEach(item => {
+      const {
+        ID,
+        nombre,
+        cate,
+        cover,
+        imagen1,
+        descripcion,
+        url_page,
+        visible
+      } = item;
+
+      div += `
+        <div class="col-lg-4 col-md-6 portfolio-item filter-${cate}">
+          <div class="portfolio-wrap">
+            <img 
+              src="https://portafolio1.webcindario.com/modulos/portafolio/fotos/${cover}" 
+              class="img-fluid" 
+              alt="${nombre}"
+            >
+
+            <div class="portfolio-links">
+
+              <a 
+                target="_blank"
+                href="https://portafolio1.webcindario.com/modulos/portafolio/fotos/${cover}" 
+                data-gallery="portfolioGallery" 
+                class="portfolio-lightbox" 
+                title="${nombre}"
+              >
+                <i class="bx bx-plus"></i>
+              </a>
+
+              <a 
+                target="_blank" 
+                href="https://portafolio1.webcindario.com/index.php?mod=portafolio&ext=item&id=${ID}" 
+                title="Más Detalles"
+              >
+                <i class="bx bx-link"></i>
+              </a>
+
+            </div>
           </div>
         </div>
-      </div>`;
-    if (!unicos.includes(cate)) {
-      unicos.push(cate);
+      `;
+
+      if (!unicos.includes(cate)) {
+        unicos.push(cate);
+      }
+    });
+
+    porta.innerHTML = div;
+
+    unicos.reverse();
+
+    let li = `
+      <li onclick="btn(0)" data-filter="*" class="filter-active">
+        All
+      </li>
+    `;
+
+    let n = 0;
+
+    for (let i = 0; i < unicos.length; i++) {
+      n++;
+
+      li += `
+        <li 
+          onclick="btn(${n})" 
+          data-filter=".filter-${unicos[i]}"
+        >
+          ${unicos[i]}
+        </li>
+      `;
     }
-  });//console.log(unicos.reverse());
-  porta.innerHTML = div;
-  unicos.reverse();
-  let li = '<li onclick="btn(0)" data-filter="*" class="filter-active">All</li>';
-  var n = 0;
-  for (var i = 0; i < unicos.length; i++) {
-    n++;
-    li += `<li onclick="btn(${n})" data-filter=".filter-${unicos[i]}">${unicos[i]}</li>`
+
+    cat.innerHTML = li;
+
+  } catch (error) {
+
+    console.error('Error al cargar el portafolio:', error);
+
+    porta.innerHTML = '';
+    cat.innerHTML = '';
+
   }
-  cat.innerHTML = li;
 }
 
 function calcularEdad(fechaNacimiento) {
