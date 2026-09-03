@@ -1,5 +1,6 @@
 //FUNCIONES
 async function portafolio() {
+  const portafolio = document.querySelector('#portfolio');
   const porta = document.querySelector('.portfolio-container');
   const cat = document.querySelector('#portfolio-flters');
 
@@ -118,7 +119,7 @@ async function portafolio() {
 
     porta.innerHTML = '';
     cat.innerHTML = '';
-
+    portafolio.computedStyleMap.display = 'none';
   }
 }
 
