@@ -110,16 +110,12 @@ async function portafolio() {
         </li>
       `;
     }
-
     cat.innerHTML = li;
-
   } catch (error) {
-
     console.error('Error al cargar el portafolio:', error);
-
     porta.innerHTML = '';
     cat.innerHTML = '';
-    portafolio.computedStyleMap.display = 'none';
+    porta.style.display = 'none';
   }
 }
 
