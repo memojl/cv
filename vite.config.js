@@ -5,7 +5,7 @@ export default defineConfig({
   base: '/', //Configuar para "spa -> /" para "hash -> ./"
   root: './',
   build: {
-    outDir: 'profile',
+    outDir: 'docs',
   },
   publicDir: 'public',
   envDir: ".env"
