@@ -1,14 +1,11 @@
 //FUNCIONES
 async function portafolio() {
-    const portafolio = document.querySelector('#portfolio');
     const porta = document.querySelector('.portfolio-container');
     const cat = document.querySelector('#portfolio-flters');
-  
     const url = 'https://portafolio1.webcindario.com/api/v1/?tabla=portafolio';
   
     try {
       const res = await fetch(url);
-  
       // Validar respuesta HTTP
       if (!res.ok) {
         throw new Error(`Error HTTP: ${res.status} ${res.statusText}`);
@@ -16,20 +13,16 @@ async function portafolio() {
   
       // Validar que la respuesta sea JSON
       const contentType = res.headers.get('content-type');
-  
       if (!contentType || !contentType.includes('application/json')) {
         throw new Error('La respuesta no es JSON válido');
       }
-  
       const data = await res.json();
-  
       // Validar que data sea un arreglo
-      if (!Array.isArray(data) || data.length === 0) {
-        porta.innerHTML = '';
-        cat.innerHTML = '';
+      if (data || data.length === 0) {
+        porta.innerHTML = '<p class="text-center">No hay conexion.</p>';
+        //cat.innerHTML = '';
         return;
       }
-  
       data.reverse();
   
       const unicos = [];
@@ -113,9 +106,9 @@ async function portafolio() {
       cat.innerHTML = li;
     } catch (error) {
       console.error('Error al cargar el portafolio:', error);
-      porta.innerHTML = '';
-      cat.innerHTML = '';
-      porta.style.display = 'none';
+      porta.innerHTML = '<p class="text-center">No se encontaron resultados para mostrar.</p>';
+      //cat.innerHTML = '';
+      //porta.style.display = 'none';
     }
   }
   
@@ -149,6 +142,6 @@ async function portafolio() {
   
   export function inicio() {
     console.log('Función corriendo');
-    //portafolio();
+    portafolio();
     calcularEdad('1979-04-08');
   }
