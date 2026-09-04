@@ -106,7 +106,7 @@ async function portafolio() {
       cat.innerHTML = li;
     } catch (error) {
       console.error('Error al cargar el portafolio:', error);
-      porta.innerHTML = '<p class="text-center">No se encontaron resultados para mostrar.</p>';
+      porta.innerHTML = '<p class="text-center">No se encontraron resultados para mostrar.</p>';
       //cat.innerHTML = '';
       //porta.style.display = 'none';
     }
